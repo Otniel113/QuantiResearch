@@ -3,7 +3,7 @@ Beberapa olah dan analisis data penelitian pendekatan kuantitatif menggunakan st
 
 ## Direktori atau Folder
 1. 01-Simple = Hanya untuk data 2 kolom saja (X dan Y), biasanya menggunakan data sekunder atau data dari internet.
-2. 02-Advance = Menggunakan data banyak kolom, biasanya menggunakan data primer yang didapatkan dari sebar survei atau kuesioner.
+2. 02-Advanced = Menggunakan data banyak kolom, biasanya menggunakan data primer yang didapatkan dari sebar survei atau kuesioner.
 
 ## Uji Asumsi Klasik yang Dilakukan
 Uji Asumsi Klasik dilakukan sebagai persyaratan sebelum melakukan Uji Hipotesis. Hal ini agar dapat memilih metode uji hipotesis yang tepat sesuai data dan juga hasil uji asumsi klasik. Uji Asumsi Klasik seperti Uji Normalitas, Uji Linearitas, dsb..
@@ -24,6 +24,8 @@ Uji-uji tersebut adalah yang paling sering digunakan. Pemilihan uji tersebut ter
 5. Uji Non-Parametrik: Jika Uji Normalitas tidak lolos.
 
 ## Penjelasan File
+Direkomendasikan untuk lebih dahulu mempelajari dan melihat folder `01-Simple` sebelum ke `02-Advanced`
+
 ### 01-Simple
 #### Simple-Korelasi
 *   **Tujuan**: Mencari hubungan, arah, dan besar korelasi antara suhu rata-rata dengan kelembaban relatif.
@@ -42,3 +44,22 @@ Uji-uji tersebut adalah yang paling sering digunakan. Pemilihan uji tersebut ter
 *   **Hipotesis**: H0 (Tidak ada pengaruh) vs H1 (Ada pengaruh).
 *   **Data**: Data hasil query SQL dari VNDB (visual novel database).
 *   **Jawaban**: Durasi berpengaruh positif dan signifikan terhadap rating. Setiap kenaikan 1% durasi meningkatkan rating sebesar 0.0656%, dengan nilai R-Squared 0.404 (durasi menjelaskan 40.4% variasi rating).
+
+### 02-Advanced
+#### Advanced-Regresi Linear X dan Y
+*   **Tujuan**: Menganalisis pengaruh variabel independen X (yang terdiri dari beberapa dimensi/sub-variabel X1, X2, X3) terhadap variabel dependen Y.
+*   **Hipotesis**: H0 (Tidak ada pengaruh) vs H1 (Ada pengaruh).
+*   **Data**: Data dummy (200 responden) dengan skala Likert 1-5, mencakup uji validitas dan reliabilitas instrumen survei.
+*   **Jawaban**: Variabel X secara keseluruhan berpengaruh signifikan dan positif terhadap Y (Adj. R-Squared: 0.435). Dimensi X1 ditemukan memiliki pengaruh paling kuat dibandingkan X2 dan X3.
+
+#### Advanced-Regresi Linear X, Xm, Y
+*   **Tujuan**: Menguji pengaruh variabel X terhadap Y, pengaruh variabel moderasi Xm terhadap Y, serta apakah Xm memoderasi hubungan antara X dan Y (Moderated Regression Analysis).
+*   **Hipotesis**: H0 (Tidak ada pengaruh/moderasi) vs H1, H2, H3 (Ada pengaruh/moderasi).
+*   **Data**: Data dummy (131 responden) dengan skala Likert, menggunakan teknik *mean centering* untuk variabel moderasi.
+*   **Jawaban**: Xm berpengaruh signifikan terhadap Y, namun interaksi (X*Xm) tidak signifikan (p-value 0.314). Artinya, Xm bertindak sebagai variabel independen tambahan, bukan sebagai pemoderasi hubungan X ke Y.
+
+#### Advanced-Regresi Linear X1, X2, Y
+*   **Tujuan**: Menganalisis pengaruh parsial X1 dan X2 terhadap Y, serta pengaruh keduanya secara simultan.
+*   **Hipotesis**: H0 (Tidak ada pengaruh) vs H1 (X1->Y), H2 (X2->Y), H3 (X1,X2->Y).
+*   **Data**: Data dummy (123 responden) dengan skala Likert.
+*   **Jawaban**: Baik X1 maupun X2 berpengaruh signifikan dan positif terhadap Y secara parsial maupun simultan (Adj. R-Squared: 0.443). X1 memiliki konstribusi pengaruh yang lebih kuat dibandingkan X2.
